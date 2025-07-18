@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace Ambev.DeveloperEvaluation.Domain.Events
 {
-    public sealed class SaleCreatedEvent : IDomainEvent
+    /// <summary>
+    /// Event triggered when a sale is created.
+    /// </summary>
+    public class SaleCreatedEvent : IDomainEvent
     {
         public Sale Sale { get; }
         public DateTime OccurredAt { get; }
