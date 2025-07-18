@@ -6,16 +6,21 @@ using System.Threading.Tasks;
 
 namespace Ambev.DeveloperEvaluation.Domain.Events
 {
-    public sealed class ItemCancelledEvent : IDomainEvent
+    /// <summary>
+    /// Event triggered when an item is cancelled.
+    /// </summary>
+    public class ItemCancelledEvent : IDomainEvent
     {
         public Guid SaleId { get; }
-        public Guid ItemId { get; }
+        public Guid ProductId { get; }
+        public int Quantity { get; }
         public DateTime OccurredAt { get; }
 
-        public ItemCancelledEvent(Guid saleId, Guid itemId)
+        public ItemCancelledEvent(Guid saleId, Guid productId, int quantity)
         {
             SaleId = saleId;
-            ItemId = itemId;
+            ProductId = productId;
+            Quantity = quantity;
             OccurredAt = DateTime.UtcNow;
         }
     }
